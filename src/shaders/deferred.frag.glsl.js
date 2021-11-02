@@ -140,7 +140,7 @@ export default function(params) {
 
       float NdotH = dot(normal, h);
 
-      float specularTerm = pow(clamp(NdotH, 0.0, 1.0), 200.0);
+      float specularTerm = pow(clamp(NdotH, 0.0, 1.0), 150.0);
 
       float lightIntensity = cubicGaussian(2.0 * lightDistance / light.radius);
       float lambertTerm = max(dot(L, normal), 0.0);
