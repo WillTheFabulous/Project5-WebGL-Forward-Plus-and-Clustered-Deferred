@@ -8,7 +8,7 @@ WebGL Forward+ and Clustered Deferred Shading
 
 ### Live Online
 
-[![](img/thumb.png)](http://TODO.github.io/Project5-WebGL-Forward-Plus-and-Clustered-Deferred)
+https://WillTheFabulous.github.io/Project5-WebGL-Forward-Plus-and-Clustered-Deferred/
 
 
 Description
@@ -51,7 +51,7 @@ The Blinn Phong result can be viewed from the above gif in the rendering result 
 
 
 ## 2-component vector optimization
- To abandon the extra gbuffer for normal, I used 2-component vector with a method called sterographic projection to make the recalculation of z component more precise. We need to store pX = X / ( 1 + Z ), pY = Y / ( 1 + Z ) and when we want to get back the z component we just do  enom = 2 / ( 1 + pX * pX + pY * pY ), X = pX * denom ,Y = pY * denom,Z = denom - 1. We have an obvious performance gain at different levels of workload and it is better in large workload. This because we need to sample one less buffer each time (I pack the normal to w component of the first 2 buffers) and the computation cost is pretty small.
+ To abandon the extra gbuffer for normal, I used 2-component vector with a method called sterographic projection to make the recalculation of z component more precise. We need to store pX = X / ( 1 + Z ), pY = Y / ( 1 + Z ) and when we want to get back the z component we just do  enom = 2 / ( 1 + pX * pX + pY * pY ), X = pX * denom ,Y = pY * denom,Z = denom - 1. We have an obvious performance gain at different levels of workload and it is better in large workload. This because we need to sample one less buffer each time (I pack the normal to w component of the first 2 buffers) and the computation tradeoff is pretty small.
 
 ![20211102032719](https://user-images.githubusercontent.com/66859615/139783636-da927f03-87d1-49a0-887c-b09319111ff2.jpg)
 
